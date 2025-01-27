@@ -125,7 +125,7 @@ expo:
     mulss xmm6, xmm5
     subss xmm15, xmm6       //xmm15 - r
 
-    jmp .Lexponentg
+    jmp .Lexponent
 
 
 .Lexponent:
@@ -182,8 +182,10 @@ expo:
 
     mov r8, 0x37D00D01
     mov r9, 0x3638EF1D
+    mov r10, 0x34942D27
     movd xmm6, r8   //a7
     movd xmm7, r9   //a8
+    movd xmm8, r10 //a10
 
     mulss xmm13, xmm15
     mulss xmm6, xmm13
@@ -192,6 +194,10 @@ expo:
     mulss xmm13, xmm15
     mulss xmm7, xmm13
     addss xmm5, xmm7
+
+    mulss xmm13, xmm15
+    mulss xmm8, xmm13
+    addss xmm5, xmm8
 
 
     jmp .Lfin
